@@ -1,0 +1,1063 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Casual Wear — Neoktisis Fashion House</title>
+   <style>
+    :root {
+      --bg: #fff;
+      --ink: #0f1724;
+      --muted: #6b7280;
+      --accent: #b88b00;
+      --card: #fff;
+    }
+
+/* HEADER */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #111;
+  color: #ffd700;
+  padding: 3px 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+/* Inner wrapper */
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Brand / logo */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.brand-tag {
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+/* Nav links */
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Nav links style */
+.nav-list li a {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 4px 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-list li a:hover,
+.nav-list li a.active {
+  border-bottom: 2px solid #ffd700;
+}
+
+/* Mobile menu toggle (hamburger) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #ffd700;
+  border-radius: 2px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: row; /* or column if needed */
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    width: 100%;
+    display: none; /* hidden by default */
+    margin-top: 10px;
+    background: #111;
+    padding: 10px 0;
+    border-radius: 8px;
+  }
+
+  .nav-list.show {
+    display: flex;
+  }
+
+  .nav-list li {
+    width: 100%;
+    text-align: left;
+    margin: 5px 0;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      margin-top: 120px;
+      font-family: Inter, system-ui, Arial;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 20px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(15,23,36,0.06);
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(15,23,36,0.12);
+    }
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: contain;
+      display: block;
+    }
+    .meta {
+      padding: 12px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .price { font-weight: 700; color: var(--ink); }
+    .category-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 18px 0;
+    }
+    .logo-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+    @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:620px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+ <header class="site-header">
+  <div class="header-inner wrap">
+    <div class="brand">
+      <img src="assets/NEOLOGO.png" alt="Logo" class="logo-img">
+      <div>
+        <div class="brand-name">Neoktisis Fashion House</div>
+        <div class="brand-tag">Tailoring Class, Defining Men</div>
+      </div>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="menu-toggle" onclick="document.querySelector('.nav-list').classList.toggle('show')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="booking.html">Booking</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="about.html">about us</a></li>
+    </ul>
+  </div>
+</header>
+
+  <main class="wrap">
+    <h1>Casual Wear Collections</h1>
+    <p style="color:var(--muted);margin:0 0 12px">Click Book Now to pre-fill booking. Use WhatsApp to message and order directly.</p>
+
+    <!-- Jeans/Shirt -->
+    <section>
+      <div class="category-title"><h2>Jeans / Shirt</h2><small style="color:var(--muted)">Casual combos</small></div>
+      <div class="grid">
+        <!-- 10 items: change src, title, price -->
+        <article class="card">
+          <img src="assets/JEAN TROUSERS/Jeans 1.png" alt="Jeans & Shirt 1">
+          <div class="meta">
+            <div class="top">
+              <strong>Jeans Trouser 1</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jean Trouser Collections</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Jeans Trouser 1 &category=Jeans&Trouser 1&price=8,000">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/JEAN TROUSERS/Jeans 2.png" alt="Jeans & Shirt 2">
+          <div class="meta">
+            <div class="top">
+              <strong>Jeans Trouser 2</strong>
+              <div class="price">₦8,500</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jean Trouser Collections</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Jeans Trouser 2&category=Jeans%2FShirt&price=8,500">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/JEAN TROUSERS/Jeans 3.png" alt="Jeans & Shirt 3">
+          <div class="meta">
+            <div class="top">
+              <strong>Jeans Trouser 3</strong>
+              <div class="price">₦8,500</div>
+              </div>
+              <div>
+                <small style="color:var(--muted);display:block;margin-top:8px">Jean Trouser Collections</small>
+              </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Jeans Trouser 3&category=Jeans%2FShirt&price=8,500">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/JEAN TROUSERS/Jeans 4.png" alt="Jeans & Shirt 4">
+          <div class="meta">
+            <div class="top">
+              <strong>Jeans Trouser 4</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jean Trouser Collections</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Jeans Trouser 4&category=Jeans%2FShirt&price=8,000">Book Now</a>
+             
+            </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/JEAN TROUSERS/Jeans 5.png" alt="Jeans & Shirt 5">
+          <div class="meta">
+            <div class="top">
+              <strong>Jeans Trouser 5</strong>
+              <div class="price">₦9,000</div>
+            </div>
+            <small style="color:var(--muted);display:block;margin-top:8px">Jean Trouser Collections</small>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Jeans Trouser 5&category=Jeans%2FShirt&price=9,000">Book Now</a>
+             
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/JEAN TROUSERS/Jeans 6.png" alt="Jeans & Shirt 6">
+          <div class="meta">
+            <div class="top">
+              <strong>Jeans Trouser 6</strong>
+              <div class="price">₦10,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jean Trouser Collections</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Jeans Touser 6&category=Jeans%2FShirt&price=10,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/JEAN TROUSERS/Jeans 7.png" alt="Jeans & Shirt 7">
+          <div class="meta">
+            <div class="top">
+              <strong>Jeans Trouser 7</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jean Trouser Collections</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Jeans Trouser 7&category=Jeans%2FShirt&price=8,000">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/JEAN TROUSERS/Jeans 8.png" alt="Jeans & Shirt 8">
+          <div class="meta">
+            <div class="top">
+              <strong>Jeans Trouser 8</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jean Trouser Collections</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Jeans Trouser 8&category=Jeans%2FShirt&price=8,000">Book Now</a>
+             
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/JEAN TROUSERS/Jeans 9.png" alt="Jeans & Shirt 9">
+          <div class="meta">
+            <div class="top">
+              <strong>Jeans Trouser 9</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jean Trouser Collections</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Jeans Trouser 9&category=Jeans%2FShirt&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/JEAN TROUSERS/Jeans 10.png" alt="Jeans & Shirt 10">
+          <div class="meta">
+            <div class="top">
+              <strong>Jeans Trouser 10</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jean Trouser Collections</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Jeans Trouser 10&category=Jeans%2FShirt&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Combat / Vintage -->
+    <section>
+      <div class="category-title"><h2>Combat / Vintage</h2><small style="color:var(--muted)">Rugged & retro styles</small></div>
+      <div class="grid">
+        <!-- 10 items -->
+        <!-- Replace images/combat1.jpg ... combat10.jpg and adjust titles/prices -->
+        <article class="card">
+          <img src="assets/Vintage and cargo pants/Vintage shirt 1.png" alt="Vintage 1">
+          <div class="meta">
+            <div class="top">
+              <strong>Vintage Shirt 1</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Vintage & Combat Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Vintage%20Shirt 1&category=Combat%2FVintage&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+        <!-- copy for combat2..combat10 -->
+        <article class="card">
+          <img src="assets/Vintage and cargo pants/Combat 1.png" alt="Vintage 2">
+          <div class="meta">
+            <div class="top">
+              <strong>Combat Collection 1</strong>
+              <div class="price">₦10,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Vintage & Combat Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title= Combat Collection 1&category=Combat%2FVintage&price=10,000">Book Now</a>
+
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/Vintage and cargo pants/Vintage shirt 2.png" alt="Vintage 2">
+          <div class="meta">
+            <div class="top">
+              <strong>Vintage Shirt 2</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Vintage & Combat Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Vintage%20Shirt 2&category=Combat%2FVintage&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/Vintage and cargo pants/Combat 2.png" alt="Vintage 2">
+          <div class="meta">
+            <div class="top">
+              <strong>Combat Collection 2</strong>
+              <div class="price">₦10,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Vintage & Combat Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Combat Collection 2&category=Combat%2FVintage&price=10,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/Vintage and cargo pants/Vintage 3.png" alt="Vintage 2">
+          <div class="meta">
+            <div class="top">
+              <strong>Vintage Shirt 3</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Vintage & Combat Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Vintage%20Shirt 3&category=Combat%2FVintage&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/Vintage and cargo pants/Combat 3.png" alt="Vintage 2">
+          <div class="meta">
+            <div class="top">
+              <strong>Combat Collection 3</strong>
+              <div class="price">₦10,000</div>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Combat Collection 3&category=Combat%2FVintage&price=10,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/Vintage and cargo pants/Vintage shirt 4.png" alt="Vintage 2">
+          <div class="meta">
+            <div class="top">
+              <strong>Vintage shirt 4</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Vintage & Combat Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Vintage%20Shirt 4&category=Combat%2FVintage&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/Vintage and cargo pants/Combat 4.png" alt="Vintage 2">
+          <div class="meta">
+            <div class="top">
+              <strong>Combat Collection 4</strong>
+              <div class="price">₦10,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Vintage & Combat Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Combat Collection 4&category=Combat%2FVintage&price=10,000">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/Vintage and cargo pants/Combat 5.png" alt="Vintage 2">
+          <div class="meta">
+            <div class="top">
+              <strong>Combat Collection 5</strong>
+              <div class="price">₦10,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Vintage & Combat Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Combat Collection 5&category=Combat%2FVintage&price=10,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/Vintage and cargo pants/Combat 6.png" alt="Vintage 2">
+          <div class="meta">
+            <div class="top">
+              <strong>Combat Collection 6</strong>
+              <div class="price">₦10,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Vintage & Combat Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Combat Collection 6&category=Combat%2FVintage&price=10,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/Vintage and cargo pants/Combat Set.png" alt="Vintage 2">
+          <div class="meta">
+            <div class="top">
+              <strong>Complete Combat set</strong>
+              <div class="price">₦18,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Vintage & Combat Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Complete Combat set&category=Combat%2FVintage&price=18,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+        <!-- ... repeat up to 10 -->
+      </div>
+    </section>
+
+    <!-- Cargo Pant -->
+    
+    <!-- Joggers -->
+    <section>
+      <div class="category-title"><h2>Joggers</h2><small style="color:var(--muted)">Comfort & movement</small></div>
+      <div class="grid">
+        <!-- 10 items: images/jogger1.jpg ... jogger10.jpg -->
+        <article class="card">
+          <img src="assets/JUGGERS/Jogger 1.png" alt="Jogger 1">
+          <div class="meta">
+            <div class="top">
+              <strong>Jogger Collection 1</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jogger & T-shirt Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Jogger Collection 1&category=Joggers&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+          <article class="card">
+          <img src="assets/T SHIRTS/RShirt 1.png" alt="Jogger 1">
+          <div class="meta">
+            <div class="top">
+              <strong>T-Shirt 1</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jogger & T-shirt Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=T-Shirt 1&category=Joggers&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+       
+         <article class="card">
+          <img src="assets/JUGGERS/Jogger 2.png" alt="Jogger 1">
+          <div class="meta">
+            <div class="top">
+              <strong>Jogger Collection 2</strong>
+              <div class="price">₦8,500</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jogger & T-shirt Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Jogger Collection 2&category=Joggers&price=8,500">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/T SHIRTS/RShirt 2.png" alt="Jogger 1">
+          <div class="meta">
+            <div class="top">
+              <strong>T-Shirt 2</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jogger & T-shirt Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=T-Shirt 2&category=Joggers&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+         <article class="card">
+          <img src="assets/JUGGERS/Jogger 3.png" alt="Jogger 1">
+          <div class="meta">
+            <div class="top">
+              <strong>Jogger Collection 3</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jogger & T-shirt Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Jogger Collection 3&category=Joggers&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/T SHIRTS/RShirt 3.png" alt="Jogger 1">
+          <div class="meta">
+            <div class="top">
+              <strong>T-Shirt 3</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jogger & T-shirt Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=T-shirt 3&category=Joggers&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+         <article class="card">
+          <img src="assets/JUGGERS/Jogger 4.png" alt="Jogger 1">
+          <div class="meta">
+            <div class="top">
+              <strong>Jogger Collection 4</strong>
+              <div class="price">₦8,500</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jogger & T-shirt Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Jogger Collection 4&category=Joggers&price=8,500">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/T SHIRTS/RShirt 4.png" alt="Jogger 1">
+          <div class="meta">
+            <div class="top">
+              <strong>T-Shirt 4</strong>
+              <div class="price">₦8,000</div>
+            </div>
+          
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jogger & T-shirt Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=T-shirt 4&category=Joggers&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+         <article class="card">
+          <img src="assets/JUGGERS/Jogger 5.png" alt="Jogger 1">
+          <div class="meta">
+            <div class="top">
+              <strong>Jogger Collection 5</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jogger & T-shirt Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Jogger Collection 5&category=Joggers&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/T SHIRTS/RShirt 5.png" alt="Jogger 1">
+          <div class="meta">
+            <div class="top">
+              <strong>T-Shirt 5</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jogger & T-shirt Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=T-shirt 5&category=Joggers&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+         <article class="card">
+          <img src="assets/JUGGERS/Jogger 7.png" alt="Jogger 1">
+          <div class="meta">
+            <div class="top">
+              <strong>Jogger Collection 6</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jogger & T-shirt Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Jogger Collection 6&category=Joggers&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/T SHIRTS/RShirt 6.png" alt="Jogger 1">
+          <div class="meta">
+            <div class="top">
+              <strong>T-Shirt 6</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jogger & T-shirt Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=T-shirt 6&category=Joggers&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/JUGGERS/Jogger 8.png" alt="Jogger 1">
+          <div class="meta">
+            <div class="top">
+              <strong>Jogger Collection 7</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jogger & T-shirt Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Jogger Collection 7&category=Joggers&price=8,000">Book Now</a>
+             
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/T SHIRTS/RShirt 7.png" alt="Jogger 1">
+          <div class="meta">
+            <div class="top">
+              <strong>T-Shirt 7</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jogger & T-shirt Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=T-Shirt 7&category=Joggers&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/JUGGERS/Jogger 9.png" alt="Jogger 1">
+          <div class="meta">
+            <div class="top">
+              <strong>Jogger Collection 8</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Jogger Collection 8&category=Joggers&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/T SHIRTS/RShirt 8.png" alt="Jogger 1">
+          <div class="meta">
+            <div class="top">
+              <strong>T-Shirt 8</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Jogger & T-shirt Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=T-Shirt 8&category=Joggers&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+        <!-- ... repeat up to 10 -->
+      </div>
+    </section>
+
+    <!-- Hoodies -->
+    <section>
+      <div class="category-title"><h2>Hoodies & Sweater Wear</h2><small style="color:var(--muted)">Warm & stylish</small></div>
+      <div class="grid">
+        <!-- 10 items: images/hoodie1.jpg ... hoodie10.jpg -->
+        <article class="card">
+          <img src="assets/SWEATERS AND HOODIES/Hoodie 1.png" alt="Hoodie 1">
+          <div class="meta">
+            <div class="top">
+              <strong>Hoodie Collection 1</strong>
+              <div class="price">₦10,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Hoodie & Sweater Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Hoodie Collection 1&category=Hoodies&price=10,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/SWEATERS AND HOODIES/Sweater 1.png" alt="Hoodie 1">
+          <div class="meta">
+            <div class="top">
+              <strong>Sweater Collection 1</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Hoodie & Sweater Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Sweater Collection 1&category=Hoodies&price=8,000">Book Now</a>
+             
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/SWEATERS AND HOODIES/Hoodie 2.png" alt="Hoodie 1">
+          <div class="meta">
+            <div class="top">
+              <strong>Hoodie Collection 2</strong>
+              <div class="price">₦10,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Hoodie & Sweater Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Hoodie Collection 2&category=Hoodies&price=10,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/SWEATERS AND HOODIES/Sweater 2.png" alt="Hoodie 1">
+          <div class="meta">
+            <div class="top">
+              <strong>Sweater Collection 2</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Hoodie & Sweater Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Sweater Collection 2&category=Hoodies&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/SWEATERS AND HOODIES/Hoodie 3.png" alt="Hoodie 1">
+          <div class="meta">
+            <div class="top">
+              <strong>Hoodie Collection 3</strong>
+              <div class="price">₦10,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Hoodie & Sweater Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Hoodie Collection 3&category=Hoodies&price=10,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/SWEATERS AND HOODIES/Sweater 3.png" alt="Hoodie 1">
+          <div class="meta">
+            <div class="top">
+              <strong>Sweater Collection 3</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Hoodie & Sweater Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Sweater Collection 3&category=Hoodies&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/SWEATERS AND HOODIES/Hoodie 4.png" alt="Hoodie 1">
+          <div class="meta">
+            <div class="top">
+              <strong>Hoddie Collection 4</strong>
+              <div class="price">₦10,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Hoodie & Sweater Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Hoodie Collection 4&category=Hoodies&price=10,000">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+         <article class="card">
+          <img src="assets/SWEATERS AND HOODIES/Sweater 4.png" alt="Hoodie 1">
+          <div class="meta">
+            <div class="top">
+              <strong>Sweater Collection 4</strong>
+              <div class="price">₦8,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Hoodie & Sweater Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Sweater Collection 4&category=Hoodies&price=8,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/SWEATERS AND HOODIES/Hoodie 5.png" alt="Hoodie 1">
+          <div class="meta">
+            <div class="top">
+              <strong>Hoodie Collection 5</strong>
+              <div class="price">₦10,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Hoodie & Sweater Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Hoodie Collection 5&category=Hoodies&price=10,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/SWEATERS AND HOODIES/Hoodie 6.png" alt="Hoodie 1">
+          <div class="meta">
+            <div class="top">
+              <strong>Hoodie Collection 6</strong>
+              <div class="price">₦10,000</div>
+            </div>
+            <div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Hoodie & Sweater Collection</small>
+            </div>
+            <div class="btn-row">
+              <a class="btn" href="booking.html?title=Hoodie Collection 6&category=Hoodies&price=10,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+
+
+        
+
+        <!-- ... repeat up to 10 -->
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="background:#0f1724;color:#fff;padding:24px;margin-top:24px">
+    <div class="wrap" style="display:flex;justify-content:space-between;align-items:center">
+      <div>
+        <div style="font-weight:700">Neoktisis Fashion House</div>
+        <small>146b Berom Road, West of Mines Quarters, Jos</small>
+      </div>
+      <div><small>© <span id="year"></span> Neoktisis Fashion House</small></div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

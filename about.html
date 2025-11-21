@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Neoktisis</title>
+  <style>
+    body { margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #f8f8f8; color: #111; line-height: 1.6; }
+    header { background: #111; color: #ffd700; padding: 20px; text-align: center; }
+    section { padding: 30px; max-width: 900px; margin: auto; }
+    h1,h2,h3 { margin-bottom: 15px; }
+    p { margin-bottom: 20px; }
+    input, textarea, select, button { display: block; width: 100%; margin-bottom: 15px; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 1em; }
+    button { background: #ffd700; border: none; cursor: pointer; font-weight: bold; }
+    button:hover { background: #e6c200; }
+    .reviews-list { margin-top: 30px; }
+    .review { background: white; padding: 15px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      section { padding: 20px; }
+      input, textarea, select, button { font-size: 0.95em; padding: 8px; }
+    }
+
+    @media (max-width: 480px) {
+      header { padding: 15px; font-size: 0.9em; }
+      h1 { font-size: 1.5em; }
+      h2 { font-size: 1.2em; }
+      h3 { font-size: 1em; }
+      section { padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>About Neoktisis</h1>
+</header>
+
+<section>
+  <h2>Who We Are</h2>
+  <p>Neoktisis merges classical tailoring with contemporary sensibilities. We design for the modern man who appreciates craft, subtlety and presence.</p>
+
+  <h2>Our Philosophy</h2>
+  <p>We believe clothing should be an extension of character. Each piece is built to elevate — from carefully selected fabrics to precise fits and finishing touches.</p>
+
+  <h2>Craftsmanship</h2>
+  <p>Our tailors and designers collaborate to ensure every seam, lining and stitch reflects our commitment to quality.</p>
+
+  <h2>Write a Review</h2>
+  <div class="review-box">
+    <input id="revName" placeholder="Your Name" />
+    <textarea id="revText" placeholder="Write your review..." rows="4"></textarea>
+    <select id="revRating">
+      <option value="">Rating</option>
+      <option value="1">1 Star</option>
+      <option value="2">2 Stars</option>
+      <option value="3">3 Stars</option>
+      <option value="4">4 Stars</option>
+      <option value="5">5 Stars</option>
+    </select>
+    <button id="submitReviewBtn">Submit Review</button>
+  </div>
+
+  <h2 style="margin-top:40px;">Customer Reviews</h2>
+  <div id="reviewsList" class="reviews-list"></div>
+</section>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+  import { getFirestore, collection, addDoc, serverTimestamp, getDocs, orderBy, query } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC3hDuyRtWQ9exNSGOAXqldc6HCkX49rH4",
+    authDomain: "revive-nub-etc.firebaseapp.com",
+    projectId: "revive-nub-etc",
+    storageBucket: "revive-nub-etc.appspot.com",
+    messagingSenderId: "667364246928",
+    appId: "1:667364246928:web:57926a6d871032a8019f15",
+    measurementId: "G-HC1C5KJ127"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  async function submitReview() {
+    const name = document.getElementById("revName").value.trim();
+    const reviewText = document.getElementById("revText").value.trim();
+    const rating = document.getElementById("revRating").value;
+
+    if (!name || !reviewText || !rating) {
+      alert("Please complete all fields.");
+      return;
+    }
+
+    try {
+      await addDoc(collection(db, "reviews"), {
+        name,
+        review: reviewText,
+        rating,
+        createdAt: serverTimestamp()
+      });
+      document.getElementById("revName").value = '';
+      document.getElementById("revText").value = '';
+      document.getElementById("revRating").value = '';
+      loadReviews();
+    } catch (e) { console.error(e); alert("Error submitting review."); }
+  }
+
+  async function loadReviews() {
+    const list = document.getElementById("reviewsList");
+    list.innerHTML = "Loading reviews...";
+    const q = query(collection(db, "reviews"), orderBy("createdAt", "desc"));
+    const snapshot = await getDocs(q);
+    list.innerHTML = '';
+    snapshot.forEach(doc => {
+      const r = doc.data();
+      const div = document.createElement('div');
+      div.className = 'review';
+      div.innerHTML = `<strong>${r.name}</strong> — ⭐ ${r.rating}<br><p>${r.review}</p>`;
+      list.appendChild(div);
+    });
+  }
+
+  document.getElementById('submitReviewBtn').addEventListener('click', submitReview);
+  window.onload = loadReviews;
+</script>
+
+</body>
+</html>

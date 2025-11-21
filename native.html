@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Native Wear — Neoktisis Fashion House</title>
+  <style>
+    :root {
+      --bg: #fff;
+      --ink: #0f1724;
+      --muted: #6b7280;
+      --accent: #b88b00;
+      --card: #fff;
+    }
+
+/* HEADER */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #111;
+  color: #ffd700;
+  padding: 3px 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+/* Inner wrapper */
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Brand / logo */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.brand-tag {
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+/* Nav links */
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Nav links style */
+.nav-list li a {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 4px 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-list li a:hover,
+.nav-list li a.active {
+  border-bottom: 2px solid #ffd700;
+}
+
+/* Mobile menu toggle (hamburger) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #ffd700;
+  border-radius: 2px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: row; /* or column if needed */
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    width: 100%;
+    display: none; /* hidden by default */
+    margin-top: 10px;
+    background: #111;
+    padding: 10px 0;
+    border-radius: 8px;
+  }
+
+  .nav-list.show {
+    display: flex;
+  }
+
+  .nav-list li {
+    width: 100%;
+    text-align: left;
+    margin: 5px 0;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      margin-top: 120px;
+      font-family: Inter, system-ui, Arial;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 20px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(15,23,36,0.06);
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(15,23,36,0.12);
+    }
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: contain;
+      display: block;
+    }
+    .meta {
+      padding: 12px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .price { font-weight: 700; color: var(--ink); }
+    .category-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 18px 0;
+    }
+    .logo-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+    @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:620px){.grid{grid-template-columns:1fr}}
+  </style>
+<header class="site-header">
+  <div class="header-inner wrap">
+    <div class="brand">
+      <img src="assets/NEOLOGO.png" alt="Logo" class="logo-img">
+      <div>
+        <div class="brand-name">Neoktisis Fashion House</div>
+        <div class="brand-tag">Tailoring Class, Defining Men</div>
+      </div>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="menu-toggle" onclick="document.querySelector('.nav-list').classList.toggle('show')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="booking.html">Booking</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="about.html">about us</a></li>
+    </ul>
+  </div>
+</header>
+
+
+  <main class="wrap">
+    <h1>Native Wear Collections</h1>
+
+    <!-- SENATOR SECTION -->
+    <section>
+      <div class="category-title"><h2>Senator Wears</h2></div>
+      <div class="grid">
+        <!-- Repeat for 10 pictures -->
+        <article class="card">
+          <img src="assets/Senator wear/senator wear 1.png" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Senator Classic 1</strong>
+                <div class="price">₦10,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Senator Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Senator Classic 1&category=Senator&price=10,000">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Duplicate this card and just change image, name, and price -->
+        <article class="card">
+          <img src="assets/Senator wear/senator wear 2.png" alt="Senator Classic 2">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Senator Classic 2</strong>
+                <div class="price">₦10,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Senator Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Senator+Classic+2&category=Senator&price=10,000">Book Now</a>
+             
+            </div>
+          </div>
+        </article>
+          <!-- Duplicate this card and just change image, name, and price -->
+        <article class="card">
+          <img src="assets/Senator wear/senator wear 3.png" alt="Senator Classic 2">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Senator Classic 3</strong>
+                <div class="price">₦10,500</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Senator Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Senator+Classic+3&category=Senator&price=10,500">Book Now</a>
+            </div>
+          </div>
+        </article>
+          <!-- Duplicate this card and just change image, name, and price -->
+        <article class="card">
+          <img src="assets/Senator wear/senator wear 4.png" alt="Senator Classic 2">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Senator Classic 4</strong>
+                <div class="price">₦10,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Senator Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Senator+Classic+4&category=Senator&price=10,000">Book Now</a>
+    
+            </div>
+          </div>
+        </article>
+          <!-- Duplicate this card and just change image, name, and price -->
+        <article class="card">
+          <img src="assets/Senator wear/senator wear 5.png" alt="Senator Classic 2">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Senator Classic 5</strong>
+                <div class="price">₦10,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Senator Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Senator+Classic+5&category=Senator&price=10,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+          <!-- Duplicate this card and just change image, name, and price -->
+        <article class="card">
+          <img src="assets/Senator wear/senator wear 6.png" alt="Senator Classic 2">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Senator Classic 6</strong>
+                <div class="price">₦10,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Senator Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Senator+Classic+6&category=Senator&price=10,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+          <!-- Duplicate this card and just change image, name, and price -->
+        <article class="card">
+          <img src="assets/Senator wear/senator wear 7.png" alt="Senator Classic 2">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Senator Classic 7</strong>
+                <div class="price">₦10,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Senator Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Senator+Classic+7&category=Senator&price=10,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+          <!-- Duplicate this card and just change image, name, and price -->
+        <article class="card">
+          <img src="assets/Senator wear/senator wear 8.png" alt="Senator Classic 2">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Senator Classic 8</strong>
+                <div class="price">₦10,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Senator Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Senator+Classic+8&category=Senator&price=10,000">Book Now</a>
+             
+            </div>
+          </div>
+        </article>
+          <!-- Duplicate this card and just change image, name, and price -->
+        <article class="card">
+          <img src="assets/Senator wear/senator wear 9.png" alt="Senator Classic 2">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Senator Classic 9</strong>
+                <div class="price">₦10,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Senator Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Senator+Classic+9&category=Senator&price=10,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+          <!-- Duplicate this card and just change image, name, and price -->
+        <article class="card">
+          <img src="assets/Senator wear/senator wear 10.png" alt="Senator Classic 2">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Senator Classic 10</strong>
+                <div class="price">₦12,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Senator Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Senator+Classic+10&category=Senator&price=12,0000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <!-- Continue this pattern up to Senator Classic 10 -->
+      </div>
+    </section>
+
+    <!-- ANKARA SECTION -->
+    <section>
+      <div class="category-title"><h2>Ankara Wears</h2></div>
+      <div class="grid">
+        <article class="card">
+          <img src="assets/Ankara/Ankara 1.png" alt="Ankara Set 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Ankara Set 1</strong>
+                <div class="price">₦10,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Ankara Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Ankara+Set+1&category=Ankara&price=10,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/Ankara/Ankara 2.png" alt="Ankara Set 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Ankara Set 2</strong>
+                <div class="price">₦10,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Ankara Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Ankara+Set+2&category=Ankara&price=10,000">Book Now</a>
+             
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/Ankara/Ankara 3.png" alt="Ankara Set 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Ankara Set 3</strong>
+                <div class="price">₦10,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Ankara Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Ankara+Set+3&category=Ankara&price=10,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/Ankara/Ankara 4.png" alt="Ankara Set 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Ankara Set 4</strong>
+                <div class="price">₦10,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Ankara Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Ankara+Set+4&category=Ankara&price=10,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/Ankara/Ankara 5.png" alt="Ankara Set 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Ankara Set 5</strong>
+                <div class="price">₦9,500</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Ankara Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Ankara+Set+5&category=Ankara&price=9,500">Book Now</a>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/Ankara/Ankara 6.png" alt="Ankara Set 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Ankara Set 6</strong>
+                <div class="price">₦10,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Ankara Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Ankara+Set+6&category=Ankara&price=10,000">Book Now</a>
+             
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/Ankara/Ankara 7.png" alt="Ankara Set 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Ankara Set 7</strong>
+                <div class="price">₦10,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Ankara Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Ankara+Set+7&category=Ankara&price=10,000">Book Now</a>
+             
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/Ankara/Ankara 8.png" alt="Ankara Set 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Ankara Set 8</strong>
+                <div class="price">₦10,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Ankara Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Ankara+Set+8&category=Ankara&price=10,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/Ankara/Ankara 9.png" alt="Ankara Set 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Ankara Set 9</strong>
+                <div class="price">₦10,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Ankara Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Ankara+Set+9&category=Ankara&price=10,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/Ankara/Ankara 10.png" alt="Ankara Set 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Ankara Set 10</strong>
+                <div class="price">₦10,500</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Ankara Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Ankara+Set+10&category=Ankara&price=10,500">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <!-- Repeat 9 more for Ankara -->
+      </div>
+    </section>
+
+    <!-- ABADA SECTION -->
+    <section>
+      <div class="category-title"><h2>Abada Wears</h2></div>
+      <div class="grid">
+        <article class="card">
+          <img src="assets/abada/Abada 1.png" alt="Abada Set 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Abada Set 1</strong>
+                <div class="price">₦18,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Abada Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Abada+Set+1&category=Abada&price=18,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/abada/Abada 2.png" alt="Abada Set 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Abada Set 2</strong>
+                <div class="price">₦20,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Abada Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Abada+Set+2&category=Abada&price=20,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/abada/Abada 3.png" alt="Abada Set 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Abada Set 3</strong>
+                <div class="price">₦21,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Abada Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Abada+Set+3&category=Abada&price=21,000">Book Now</a>
+             
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/abada/Abada 4.png" alt="Abada Set 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Abada Set 4</strong>
+                <div class="price">₦20,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Abada Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Abada+Set+4&category=Abada&price=20,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/abada/Abada 5.png" alt="Abada Set 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Abada Set 5</strong>
+                <div class="price">₦18,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Abada Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Abada+Set+5&category=Abada&price=18,0000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/abada/Abada 6.png" alt="Abada Set 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Abada Set 6</strong>
+                <div class="price">₦19,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Abada Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Abada+Set+6&category=Abada&price=19,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/abada/Abada 7.png" alt="Abada Set 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Abada Set 7</strong>
+                <div class="price">₦20,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Abada Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Abada+Set+7&category=Abada&price=20,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/abada/Abada 8.png" alt="Abada Set 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Abada Set 8</strong>
+                <div class="price">₦18,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Abada Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Abada+Set+8&category=Abada&price=18,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/abada/Abada 9.png" alt="Abada Set 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Abada Set 9</strong>
+                <div class="price">₦19,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Abada Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Abada+Set+9&category=Abada&price=19,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/abada/Abada 10.png" alt="Abada Set 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Abada Set 10</strong>
+                <div class="price">₦18,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Abada Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Abada+Set+10&category=Abada&price=18,000">Book Now</a>
+              
+            </div>
+          </div>
+        </article>
+        <!-- Repeat 9 more for Abada -->
+      </div>
+    </section>
+  </main>
+
+  <footer style="background:#0f1724;color:#fff;padding:24px;margin-top:24px">
+    <div class="wrap" style="display:flex;justify-content:space-between;align-items:center">
+      <div>
+        <div style="font-weight:700">Neoktisis Fashion House</div>
+        <small>146b Berom Road, West of Mines Quarters, Jos</small>
+      </div>
+      <div><small>© <span id="year"></span> Neoktisis Fashion House</small></div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

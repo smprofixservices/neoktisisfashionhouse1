@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Booking — Neoktisis Fashion House</title>
+  <style>
+    :root {
+      --bg: #fff;
+      --ink: #0f1724;
+      --muted: #6b7280;
+      --accent: #b88b00;
+      --card: #fff;
+    }
+
+/* HEADER */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #111;
+  color: #ffd700;
+  padding: 3px 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+/* Inner wrapper */
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Brand / logo */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.brand-tag {
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+/* Nav links */
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Nav links style */
+.nav-list li a {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 4px 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-list li a:hover,
+.nav-list li a.active {
+  border-bottom: 2px solid #ffd700;
+}
+
+/* Mobile menu toggle (hamburger) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #ffd700;
+  border-radius: 2px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: row; /* or column if needed */
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    width: 100%;
+    display: none; /* hidden by default */
+    margin-top: 10px;
+    background: #111;
+    padding: 10px 0;
+    border-radius: 8px;
+  }
+
+  .nav-list.show {
+    display: flex;
+  }
+
+  .nav-list li {
+    width: 100%;
+    text-align: left;
+    margin: 5px 0;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      margin-top: 120px;
+      font-family: Inter, system-ui, Arial;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 20px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(15,23,36,0.06);
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(15,23,36,0.12);
+    }
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: contain;
+      display: block;
+    }
+    .meta {
+      padding: 12px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .price { font-weight: 700; color: var(--ink); }
+    .category-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 18px 0;
+    }
+    .logo-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
+}
+ form h2 { margin-top: 0; }
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: 600;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-top: 6px;
+      font-size: 15px;
+      font-family: inherit;
+    }
+    textarea { resize: vertical; min-height: 80px; }
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 16px;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    button:hover { background: #a17800; }
+    footer {
+      background: #0f1724;
+      color: #fff;
+      padding: 24px;
+      margin-top: 24px;
+    }
+    .booking-preview {
+      text-align: center;
+      margin-bottom: 20px;
+      background: #fafafa;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .booking-preview img {
+      max-width: 220px;
+      border-radius: 10px;
+      display: none;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .preview-info {
+      font-size: 16px;
+      margin-top: 6px;
+      color: var(--ink);
+    }
+    .preview-price {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+
+    @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:620px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-inner wrap">
+    <div class="brand">
+      <img src="assets/NEOLOGO.png" alt="Logo" class="logo-img">
+      <div>
+        <div class="brand-name">Neoktisis Fashion House</div>
+        <div class="brand-tag">Tailoring Class, Defining Men</div>
+      </div>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="menu-toggle" onclick="document.querySelector('.nav-list').classList.toggle('show')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="booking.html">Booking</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="about.html">about us</a></li>
+    </ul>
+  </div>
+</header>
+
+  <main class="wrap">
+    <h1>Book Your Outfit</h1>
+    <p style="color:var(--muted)">Please fill out the form below to schedule your tailoring or fitting appointment.</p>
+
+    <div class="booking-preview">
+      <img id="previewImage" alt="Selected Outfit Preview">
+      <div class="preview-info" id="previewTitle"></div>
+      <div class="preview-price" id="previewPrice"></div>
+    </div>
+
+    <form id="bookingForm">
+      <h2>Booking Form</h2>
+
+      <input type="hidden" id="orderCategory">
+      <input type="hidden" id="orderName">
+      <input type="hidden" id="orderPrice">
+
+      <label>Full Name</label>
+      <input type="text" id="name" placeholder="Enter your full name" required>
+
+      <label>Phone Number</label>
+      <input type="tel" id="phone" placeholder="Enter your phone number" required>
+
+      <label>Preferred Date of appointment</label>
+      <input type="date" id="date" required>
+
+      <label>Additional Message</label>
+      <textarea id="message" placeholder="Describe your request or measurements..."></textarea>
+
+      <button type="button" onclick="sendBooking()">Book via WhatsApp</button>
+    </form>
+  </main>
+
+  <footer>
+    <div class="wrap" style="display:flex;justify-content:space-between;align-items:center">
+      <div>
+        <div style="font-weight:700">Neoktisis Fashion House</div>
+        <small>146b Berom Road, West of Mines Quarters, Jos</small>
+      </div>
+      <div><small>© <span id="year"></span></small></div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Get details from URL parameters
+    const params = new URLSearchParams(window.location.search);
+    const title = params.get('title');
+    const category = params.get('category');
+    const price = params.get('price');
+    const image = params.get('image');
+
+    // Assign elements
+    const previewImage = document.getElementById('previewImage');
+    const previewTitle = document.getElementById('previewTitle');
+    const previewPrice = document.getElementById('previewPrice');
+    const orderName = document.getElementById('orderName');
+    const orderCategory = document.getElementById('orderCategory');
+    const orderPrice = document.getElementById('orderPrice');
+
+    // Populate preview
+    if (image) {
+      previewImage.src = image;
+      previewImage.style.display = "block";
+    }
+    if (title) {
+      previewTitle.textContent = title;
+      orderName.value = title;
+    }
+    if (price) {
+      previewPrice.textContent = "₦" + price;
+      orderPrice.value = price;
+    }
+    if (category) {
+      orderCategory.value = category;
+    }
+
+    // WhatsApp booking
+    function sendBooking() {
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const date = document.getElementById('date').value;
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !phone || !date) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      const text = `Hello Neoktisis Fashion House, my name is ${name}.
+I would like to book an appointment for:
+  Outfit Type: ${orderCategory.value || "Not specified"}
+  Collection: ${orderName.value || "Not specified"}
+  Price: ₦${orderPrice.value || "Not specified"}
+  Date: ${date}
+  Phone: ${phone}
+  Message: ${message || "No additional message."}
+  Name of order: ${orderName.value || "Not specified"}`;
+
+      const encoded = encodeURIComponent(text);
+      const waUrl = `https://wa.me/2348107373327?text=${encoded}`;
+      window.open(waUrl, '_blank');
+    }
+  </script>
+</body>
+</html>
+
+
+   

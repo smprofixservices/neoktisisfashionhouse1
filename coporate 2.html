@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Native Wear — Neoktisis Fashion House</title>
+<style>
+    :root {
+      --bg: #fff;
+      --ink: #0f1724;
+      --muted: #6b7280;
+      --accent: #b88b00;
+      --card: #fff;
+    }
+
+/* HEADER */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #111;
+  color: #ffd700;
+  padding: 3px 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+/* Inner wrapper */
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Brand / logo */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.brand-tag {
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+/* Nav links */
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Nav links style */
+.nav-list li a {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 4px 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-list li a:hover,
+.nav-list li a.active {
+  border-bottom: 2px solid #ffd700;
+}
+
+/* Mobile menu toggle (hamburger) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #ffd700;
+  border-radius: 2px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: row; /* or column if needed */
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    width: 100%;
+    display: none; /* hidden by default */
+    margin-top: 10px;
+    background: #111;
+    padding: 10px 0;
+    border-radius: 8px;
+  }
+
+  .nav-list.show {
+    display: flex;
+  }
+
+  .nav-list li {
+    width: 100%;
+    text-align: left;
+    margin: 5px 0;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      margin-top: 120px;
+      font-family: Inter, system-ui, Arial;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 20px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(15,23,36,0.06);
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(15,23,36,0.12);
+    }
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: contain;
+      display: block;
+    }
+    .meta {
+      padding: 12px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .price { font-weight: 700; color: var(--ink); }
+    .category-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 18px 0;
+    }
+    .logo-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+    @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:620px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-inner wrap">
+    <div class="brand">
+      <img src="assets/NEOLOGO.png" alt="Logo" class="logo-img">
+      <div>
+        <div class="brand-name">Neoktisis Fashion House</div>
+        <div class="brand-tag">Tailoring Class, Defining Men</div>
+      </div>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="menu-toggle" onclick="document.querySelector('.nav-list').classList.toggle('show')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="booking.html">Booking</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="about.html">about us</a></li>
+    </ul>
+  </div>
+</header>
+
+
+  <main class="wrap">
+    <h1>Corporte Wear Collections</h1>
+
+    <!-- CORPORATE SHIRTS SECTION -->
+    <section>
+      <div class="category-title"><h2>Waistcoat Collection Wear</h2></div>
+      <div class="grid">
+        <!-- Repeat for 10 pictures -->
+        <article class="card">
+          <img src="assets/WAIST COAT/waistcoat 1.png" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Waistcoat Collection 1</strong>
+                <div class="price">₦8,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Waistcoat Collections</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Waistcoat Collection 1&category=Senator&price=8,000">Book Now</a>
+          </div>
+        </article>
+
+        <!-- Duplicate this card and just change image, name, and price -->
+         <article class="card">
+          <img src="assets/WAIST COAT/waistcoat 2.png" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Waistcoat Collection 2</strong>
+                <div class="price">₦8,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Waistcoast Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Waistcoat Collection 2&category=Senator&price=8,000">Book Now</a>
+            </div>
+          </div>
+        </article>
+          <!-- Duplicate this card and just change image, name, and price -->
+         <article class="card">
+          <img src="assets/WAIST COAT/waistcoat 3.png" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Waistcoat Collection 3</strong>
+                <div class="price">₦8,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Waistcoat Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Waistcoat Collection 3&category=Senator&price=8,000">Book Now</a>
+            </div>
+          </div>
+        </article>
+          <!-- Duplicate this card and just change image, name, and price -->
+         <article class="card">
+          <img src="assets/WAIST COAT/waistcoat 4.png" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Waistcoat Collection 4</strong>
+                <div class="price">₦8,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Waistcoat Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Waistcoat Collection 4&category=Senator&price=8,000">Book Now</a>
+            </div>
+          </div>
+        </article>
+          <!-- Duplicate this card and just change image, name, and price -->
+         <article class="card">
+          <img src="assets/WAIST COAT/waistcoat 5.jpg" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Waistcoat Collection 5</strong>
+                <div class="price">₦8,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Waistcoat Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Waistcoat Collection 5&category=Senator&price=8,000">Book Now</a>
+             
+            </div>
+          </div>
+        </article> <article class="card">
+          <img src="assets/WAIST COAT/waistcoat 6.jpg" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Waistcoat Collection 6</strong>
+                <div class="price">₦8,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Waistcoat Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Waistcoat Collection 6&category=Senator&price=8,000">Book Now</a>
+             
+            </div>
+          </div>
+        </article>
+          <!-- Duplicate this card and just change image, name, and price -->
+         <article class="card">
+          <img src="assets/WAIST COAT/waistcoat 7.png" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Waistcoat Collection 7</strong>
+                <div class="price">₦8,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Waistcoat Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Waistcoat Collection 7&category=Senator&price=8,000">Book Now</a>
+          </div>
+        </article>
+          <!-- Duplicate this card and just change image, name, and price -->
+         <article class="card">
+          <img src="assets/WAIST COAT/waistcoat 8.jpg" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Waistcoat Collection 8</strong>
+                <div class="price">₦8,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Waistcoat Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Waistcoat Collection 8&category=Senator&price=8,000">Book Now</a>
+            </div>
+          </div>
+        </article>
+          <!-- Duplicate this card and just change image, name, and price -->
+         <article class="card">
+          <img src="assets/WAIST COAT/waistcoat 9.png" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Waistcoat Collection 9</strong>
+                <div class="price">₦8,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Waistcoat Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Waistcoat Collection 9&category=Senator&price=8,000">Book Now</a>
+            </div>
+          </div>
+        </article>
+          <!-- Duplicate this card and just change image, name, and price -->
+         <article class="card">
+          <img src="assets/WAIST COAT/waistcoat 10.jpg" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Waistcoat Collection 10</strong>
+                <div class="price">₦8,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Waistcoat Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Waistcoat Collection 10&category=Senator&price=8,000">Book Now</a>
+          </div>
+        </article>
+
+        <!-- Continue this pattern up to Senator Classic 10 -->
+      </div>
+    </section>
+
+    <!-- CORPORATE TROUSER SECTION -->
+    <section>
+      <div class="category-title"><h2>Blazers Collection</h2></div>
+      <div class="grid">
+         <article class="card">
+          <img src="assets/suits wear/blazer 1.png" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Complete suit 1</strong>
+                <div class="price">₦17,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Blazer Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Complete suit 1&category=Senator&price=17,000">Book Now</a>
+              
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/suits wear/blazer 2.png" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Complete suit 2</strong>
+                <div class="price">₦17,500</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Blazer Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Complete suit 2&category=Senator&price=17,500">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/suits wear/blazer 3.png" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Complete suit 3</strong>
+                <div class="price">₦25,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Blazer Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Complete suit 3&category=Senator&price=25,000">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+         <article class="card">
+          <img src="assets/suits wear/blazer 4.png" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Blazer 1</strong>
+                <div class="price">₦10,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Blazer Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Blazer 1&category=Senator&price=10,000">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+         <article class="card">
+          <img src="assets/suits wear/blazer 5.png" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Blazer 2</strong>
+                <div class="price">₦10,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Blazer Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Blazer 2&category=Senator&price=10,000">Book Now</a> 
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/suits wear/blazer 6.png" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Blazer 3</strong>
+                <div class="price">₦10,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Blazer Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Blazer 3&category=Senator&price=10,000">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+         <article class="card">
+          <img src="assets/suits wear/blazer 7.png" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Complete suit 4</strong>
+                <div class="price">₦17,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Blazer Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Complete suit 4&category=Senator&price=17,000">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/suits wear/blazer 8.png" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Complete suit 5</strong>
+                <div class="price">₦20,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Blazer Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Complete suit 5&category=Senator&price=20,000">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/suits wear/blazer 9.png" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Blazer 4</strong>
+                <div class="price">₦10,000</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Blazer Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Blazer 4&category=Senator&price=10,000">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/suits wear/blazer 10.png" alt="Senator Classic 1">
+          <div class="meta">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Complete suit 6</strong>
+                <div class="price">₦22,00</div>
+              </div>
+              <small style="color:var(--muted);display:block;margin-top:8px">Blazer Collection</small>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn" href="booking.html?title=Complete suit 6&category=Senator&price=22,000">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        
+        <!-- Repeat 9 more for Ankara -->
+      </div>
+    </section>
+
+   
+
+    
+    
+    
+  </main>
+
+  <footer style="background:#0f1724;color:#fff;padding:24px;margin-top:24px">
+    <div class="wrap" style="display:flex;justify-content:space-between;align-items:center">
+      <div>
+        <div style="font-weight:700">Neoktisis Fashion House</div>
+        <small>146b Berom Road, West of Mines Quarters, Jos</small>
+      </div>
+      <div><small>© <span id="year"></span> Neoktisis Fashion House</small></div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

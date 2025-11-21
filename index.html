@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neoktisis Fashion House</title>
+  <style>
+    :root {
+      --accent: #b88b00;
+      --dark: #0f1724;
+      --bg:white;
+      --text-light: #080808;
+    }
+
+    /* Reset & Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html { height: 100%; font-family: Inter, system-ui, Arial; }
+
+    /* Background + Center */
+    body {
+      background: var(--bg);
+      color: rgb(245, 243, 243);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      flex-direction: column;
+      margin-top: 120px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      color: black;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 24px;
+      color: #0c0101;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: var(--text-light);
+      padding: 14px 28px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Optional logo above text */
+    .logo {
+      width: 500px;
+      height: auto;
+      margin-bottom: 24px;
+      object-fit: contain;
+      border-radius: 50px;
+    }
+
+    /* Footer small text */
+    footer {
+      margin-top: 40px;
+      color: #888;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo -->
+  <img src="assets/NEOLOGO.png" alt="Neoktisis Fashion House Logo" class="logo" onerror="this.style.display='none'">
+
+  <!-- Welcome Text -->
+  <h1>Welcome to Neoktisis Fashion House</h1>
+  <p>Tailoring the modern gentleman. Explore our premium collections today.</p>
+
+  <!-- Button to Shop -->
+  <a href="shop.html" class="btn">Enter Shop</a>
+
+  <!-- Optional footer -->
+  <footer>© <span id="year"></span> Neoktisis Fashion House</footer>
+
+  <script>
+    // Set current year dynamically
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
